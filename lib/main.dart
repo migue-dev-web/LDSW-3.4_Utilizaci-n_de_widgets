@@ -10,112 +10,51 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(),
+      home: HomeScreen(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Act LDSW -3.4. Utilización de widgets"),
+        title: Text("Act LDSW -3.5. Home screen"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-
-
-            Text(
-              '¡Hola, Mundo!',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage("lib/338492-PADRNY-313.jpg"),
+              fit: BoxFit.cover,
+              ),
             ),
-            SizedBox(height: 20),
+          ),
 
-
-            Row(
+          Center(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  width: 50,
-                  height: 50,
-
-                  child: Text(
-                    'column 1',
-                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)
-                  ),
+                Text("Bienvenido a", style: TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,),
                 ),
-                Container(
-                  width: 35,
-                  height: 30,
-                  child: Text(
-                    'column 2',
-                      style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold)
-                  ),
-                  color: Colors.red,
-                ),
-                Container(
-                  width: 60,
-                  height: 50,
-                  child: Text(
-                      'column 3',
-                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)
-                  ),
-                ),
-                Container(
-                  width: 40,
-                  height: 30,
-                  color:Colors.blue,
-                ),
+                SizedBox(height: 10),
+                Text( 'Mi Aplicación Flutter',
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.black87,
+                  ),)
               ],
             ),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children:[
-                  Container(
-                    width: 100,
-                    height: 50,
-                    color:Colors.grey,
-                  ),
-                  Container(
-                    width: 100,
-                    height: 50,
-                    color:Colors.grey,
-                  )
-                ]
-            ),
+          ),
 
-            SizedBox(height: 20),
 
-            Stack(
-              children: [
-                Container(
-                  width: 200,
-                  height: 200,
-                  color: Colors.blue[300],
-                ),
-                Positioned(
-                  top: 50,
-                  left: 50,
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    color:Colors.yellow,
-                    child: Text(
-                      'Stackeado'
-
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+        ],
       ),
     );
   }
